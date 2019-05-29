@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Page1Component } from './page1/page1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsComponent } from './charts/charts.component';
+import { TablesComponent } from './tables/tables.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Page1Component,
-    DashboardComponent
+    DashboardComponent,
+    ChartsComponent,
+    TablesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

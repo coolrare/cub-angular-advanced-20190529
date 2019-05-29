@@ -2,10 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Page1Component } from './page1/page1.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ChartsComponent } from './charts/charts.component';
+import { TablesComponent } from './tables/tables.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
-  { path: 'page1', component: Page1Component }
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'charts', component: ChartsComponent },
+  { path: 'tables', component: TablesComponent },
+  { path: 'page1', component: Page1Component },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({

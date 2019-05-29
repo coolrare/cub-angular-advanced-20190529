@@ -6,13 +6,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
 import { ColorComponent } from './utilities/color/color.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'charts', component: ChartsComponent },
   { path: 'tables', component: TablesComponent },
-  { path: 'page1', component: Page1Component },
+  { path: 'page1', component: Page1Component, canActivate: [AuthGuard] },
   { path: 'utilities', children: [
       { path: 'color', component: ColorComponent },
       { path: 'color/:type', component: ColorComponent }
@@ -25,7 +26,8 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     useHash: true,
-    preloadingStrategy: PreloadAllModules
+    preloadingStrategy: PreloadAllModules,
+    onSameUrlNavigation: 'reload'
   })],
   exports: [RouterModule]
 })

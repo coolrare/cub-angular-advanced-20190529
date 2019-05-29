@@ -14,7 +14,8 @@ const routes: Routes = [
   { path: 'tables', component: TablesComponent },
   { path: 'page1', component: Page1Component },
   { path: 'utilities', children: [
-      { path: 'color', component: ColorComponent }
+      { path: 'color', component: ColorComponent },
+      { path: 'color/:type', component: ColorComponent }
     ]
   },
   { path: 'components', loadChildren: './components/components.module#ComponentsModule' },

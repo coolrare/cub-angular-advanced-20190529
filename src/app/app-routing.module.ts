@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'charts', component: ChartsComponent },
   { path: 'tables', component: TablesComponent },
   { path: 'page1', component: Page1Component },
+  { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
   { path: '**', component: NotFoundComponent }
 ];
 

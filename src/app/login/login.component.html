@@ -24,7 +24,7 @@ form.valid = {{ form.valid }}
 form.errors = {{ form.errors | json }}
 </pre>
                 <form class="user" (ngSubmit)="onSubmit(form)" #form="ngForm">
-                  <div class="form-group">
+                  <div class="form-group" (dblclick)="changeStatus(mUsername)">
                     <input type="email" class="form-control form-control-user"
                            name="username" [(ngModel)]="data.username"
                            #mUsername="ngModel" required minlength="3" maxlength="16"
@@ -41,7 +41,7 @@ mUsername.invalid = {{ mUsername.invalid }}
 mUsername.valid = {{ mUsername.valid }}
 mUsername.errors = {{ mUsername.errors | json }}
 </pre>
-                  <div class="form-group">
+                  <div class="form-group" (dblclick)="changeStatus(mPassword)">
                     <input type="password" class="form-control form-control-user"
                            name="password" [(ngModel)]="data.password"
                            #mPassword="ngModel" required

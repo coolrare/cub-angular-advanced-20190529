@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
 
   data: any = {
     username: '',
-    pssword: ''
+    password: ''
   };
 
   constructor() { }

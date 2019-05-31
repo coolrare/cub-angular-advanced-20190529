@@ -14,7 +14,9 @@
                 </div>
 <pre>
 form.submitted = {{ form.submitted }}
+form.status = {{ form.status | json }}
 form.value = {{ form.value | json }}
+data = {{ data | json }}
 form.pristine = {{ form.pristine }}
 form.dirty = {{ form.dirty }}
 form.touched = {{ form.touched }}
@@ -33,6 +35,7 @@ form.errors = {{ form.errors | json }}
                   </div>
 <pre>
 mUsername.value = {{ mUsername.value }}
+mUsername.status = {{ mUsername.status }}
 mUsername.pristine = {{ mUsername.pristine }}
 mUsername.dirty = {{ mUsername.dirty }}
 mUsername.touched = {{ mUsername.touched }}

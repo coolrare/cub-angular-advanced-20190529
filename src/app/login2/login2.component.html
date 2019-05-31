@@ -29,7 +29,20 @@ form.errors = {{ form.errors | json }}
                            formControlName="username"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     <span *ngIf="form.get('username').touched && form.get('username')['errors']?.required" class="has-error">!! 請輸入帳號</span>
+                    <span *ngIf="form.get('username').touched && form.get('username')['errors']?.TwId" class="has-error">!! 身分證字號格式錯誤</span>
                   </div>
+<pre>
+form.get('username').value = {{ form.get('username').value }}
+form.get('username').status = {{ form.get('username').status }}
+form.get('username').pristine = {{ form.get('username').pristine }}
+form.get('username').dirty = {{ form.get('username').dirty }}
+form.get('username').touched = {{ form.get('username').touched }}
+form.get('username').untouched = {{ form.get('username').untouched }}
+form.get('username').invalid = {{ form.get('username').invalid }}
+form.get('username').valid = {{ form.get('username').valid }}
+form.get('username').errors = {{ form.get('username').errors | json }}
+</pre>
+
                   <div class="form-group">
                     <input type="password" class="form-control form-control-user"
                            formControlName="password"

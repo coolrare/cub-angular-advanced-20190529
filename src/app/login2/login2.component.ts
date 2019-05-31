@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { TwId } from './checkTwID';
 
 @Component({
   selector: 'app-login2',
@@ -18,7 +19,7 @@ export class Login2Component implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, TwId]],
       password: ['', [Validators.required, Validators.minLength(3)]],
       emails: this.fb.array([
         this.fb.control('', [Validators.required, Validators.minLength(3)])

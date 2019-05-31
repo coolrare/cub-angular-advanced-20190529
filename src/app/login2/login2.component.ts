@@ -16,7 +16,11 @@ export class Login2Component implements OnInit {
 
     this.form = this.fb.group({
       username: ['123', [Validators.required, Validators.minLength(3)]],
-      password: ['321', [Validators.required, Validators.minLength(3)]]
+      password: ['321', [Validators.required, Validators.minLength(3)]],
+      emails: this.fb.group({
+        email1: ['', Validators.required],
+        email2: ['']
+      })
     });
   }
 

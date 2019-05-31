@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -18,12 +18,14 @@ export class Login2Component implements OnInit {
       username: ['123', [Validators.required, Validators.minLength(3)]],
       password: ['321', [Validators.required, Validators.minLength(3)]],
       emails: this.fb.array([
-        this.fb.control('', [Validators.required, Validators.minLength(3)]),
-        this.fb.control('', [Validators.required, Validators.minLength(3)]),
-        this.fb.control('', [Validators.required, Validators.minLength(3)]),
         this.fb.control('', [Validators.required, Validators.minLength(3)])
       ])
     });
+  }
+
+  addNewEmail() {
+    const emails: FormArray = this.form.get('emails') as FormArray;
+    emails.push(this.fb.control('', [Validators.required, Validators.minLength(3)]));
   }
 
 }

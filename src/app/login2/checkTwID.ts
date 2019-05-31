@@ -13,12 +13,10 @@ function checkTwID(id) {
     // 計算總分
     let total = city[id[0].charCodeAt(0) - 65];
     for (let i = 1; i <= 8; i++) {
-      // tslint:disable-next-line: no-eval
-      total += eval(id[i]) * (9 - i);
+      total += +(id[i]) * (9 - i);
     }
     // 補上檢查碼(最後一碼)
-    // tslint:disable-next-line: no-eval
-    total += eval(id[9]);
+    total += +(id[9]);
     // 檢查比對碼(餘數應為0);
     return ((total % 10 === 0));
   }

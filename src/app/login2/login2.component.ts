@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login2',
@@ -15,8 +15,8 @@ export class Login2Component implements OnInit {
     document.body.className = 'bg-gradient-primary';
 
     this.form = this.fb.group({
-      username: '123',
-      password: '321'
+      username: ['123', [Validators.required, Validators.minLength(3)]],
+      password: ['321', [Validators.required, Validators.minLength(3)]]
     });
   }
 

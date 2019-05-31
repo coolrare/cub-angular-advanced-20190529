@@ -7,19 +7,27 @@ import { ChartsComponent } from './charts/charts.component';
 import { TablesComponent } from './tables/tables.component';
 import { ColorComponent } from './utilities/color/color.component';
 import { AuthGuard } from './auth.guard';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'charts', component: ChartsComponent },
-  { path: 'tables', component: TablesComponent },
-  { path: 'page1', component: Page1Component, canActivate: [AuthGuard] },
-  { path: 'utilities', children: [
-      { path: 'color', component: ColorComponent },
-      { path: 'color/:type', component: ColorComponent }
+  {
+    path: '', component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'charts', component: ChartsComponent },
+      { path: 'tables', component: TablesComponent },
+      { path: 'page1', component: Page1Component, canActivate: [AuthGuard] },
+      { path: 'utilities', children: [
+          { path: 'color', component: ColorComponent },
+          { path: 'color/:type', component: ColorComponent }
+        ]
+      },
+      { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
     ]
   },
-  { path: 'components', loadChildren: './components/components.module#ComponentsModule' },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

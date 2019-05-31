@@ -14,11 +14,26 @@
                 </div>
                 <form class="user">
                   <div class="form-group">
-                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                    <input type="email" class="form-control form-control-user"
+                           name="username" [(ngModel)]="data.username"
+                           #mUsername="ngModel" required minlength="3" maxlength="16"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                    <span *ngIf="mUsername['errors']?.required">!! 請輸入帳號</span>
                   </div>
+<pre>
+mUsername.value = {{ mUsername.value }}
+mUsername.pristine = {{ mUsername.pristine }}
+mUsername.dirty = {{ mUsername.dirty }}
+mUsername.touched = {{ mUsername.touched }}
+mUsername.untouched = {{ mUsername.untouched }}
+mUsername.invalid = {{ mUsername.invalid }}
+mUsername.valid = {{ mUsername.valid }}
+mUsername.errors = {{ mUsername.errors | json }}
+</pre>
                   <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword"
+                    <input type="password" class="form-control form-control-user"
+                           name="password" [(ngModel)]="data.password"
+                           #mPassword="ngModel"
                            placeholder="Password">
                   </div>
                   <div class="form-group">

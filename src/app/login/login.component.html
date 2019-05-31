@@ -29,7 +29,7 @@ form.errors = {{ form.errors | json }}
                   <div class="form-group" (dblclick)="changeStatus(mUsername)">
                     <input type="email" class="form-control form-control-user"
                            name="username" [(ngModel)]="data.username"
-                           #mUsername="ngModel" required minlength="3" maxlength="16"
+                           #mUsername="ngModel" required minlength="3" maxlength="40"
                            aria-describedby="emailHelp" placeholder="Enter Email Address...">
                     <span *ngIf="mUsername.touched && mUsername['errors']?.required" class="has-error">!! 請輸入帳號</span>
                   </div>
@@ -54,7 +54,7 @@ mUsername.errors = {{ mUsername.errors | json }}
                   <div class="form-group">
                     <div class="custom-control custom-checkbox small">
                       <input type="checkbox" class="custom-control-input" id="customCheck"
-                             ngModel #mRememberMe="ngModel"
+                             [(ngModel)]="isRememberMe" #mRememberMe="ngModel"
                              [ngModelOptions]="{ standalone: true }">
                       <label class="custom-control-label" for="customCheck">Remember Me</label>
                     </div>

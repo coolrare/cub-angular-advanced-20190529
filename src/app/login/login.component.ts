@@ -13,15 +13,29 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
+  isRememberMe = false;
+
   constructor() { }
 
   ngOnInit() {
     document.body.className = 'bg-gradient-primary';
+
+    this.data.username = localStorage.getItem('email');
+    if (this.data.username) {
+      this.isRememberMe = true;
+    }
   }
 
   onSubmit(form: NgForm) {
     if (form.valid) {
       // TODO: HTTP POST
+      if (this.isRememberMe) {
+        localStorage.setItem('email', form.value.username);
+      } else {
+        localStorage.removeItem('email');
+      }
+
+      localStorage.setItem('token', '123');
     }
   }
 
